@@ -1,1 +1,72 @@
-[]
+[
+  {
+    "name": "EIGENLAYER",
+    "symbol": "EIGEN",
+    "vc": "BINANCE LABS",
+    "t1": 1,
+    "round": "融资 $100M"
+  },
+  {
+    "name": "ETHENA",
+    "symbol": "ENA",
+    "vc": "DRAGONFLY",
+    "t1": 1,
+    "round": "融资 $14M"
+  },
+  {
+    "name": "MONAD",
+    "symbol": "MONAD",
+    "vc": "PARADIGM",
+    "t1": 1,
+    "round": "融资 $225M"
+  },
+  {
+    "name": "BERACHAIN",
+    "symbol": "BERA",
+    "vc": "PARADIGM",
+    "t1": 1,
+    "round": "融资 $100M"
+  },
+  {
+    "name": "STORY PROTOCOL",
+    "symbol": "IP",
+    "vc": "A16Z",
+    "t1": 1,
+    "round": "融资 $80M"
+  },
+  {
+    "name": "BABYLON",
+    "symbol": "BBN",
+    "vc": "PARADIGM",
+    "t1": 1,
+    "round": "融资 $70M"
+  },
+  {
+    "name": "MOVEMENT",
+    "symbol": "MOVE",
+    "vc": "POLYCHAIN",
+    "t1": 1,
+    "round": "融资 $38M"
+  },
+  {
+    "name": "INITIA",
+    "symbol": "INIT",
+    "vc": "BINANCE LABS",
+    "t1": 1,
+    "round": "融资 $14M"
+  },
+  {
+    "name": "ECLIPSE",
+    "symbol": "ECLIPSE",
+    "vc": "POLYCHAIN",
+    "t1": 1,
+    "round": "融资 $50M"
+  },
+  {
+    "name": "SAKAI VAULT",
+    "symbol": "SAKAI",
+    "vc": "WEB3 VC",
+    "t1": 0,
+    "round": "融资 社区"
+  }
+]
