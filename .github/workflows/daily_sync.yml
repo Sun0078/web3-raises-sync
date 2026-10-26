@@ -2,9 +2,12 @@ name: Daily Raises Auto Sync
 
 on:
   schedule:
-    # 每天 UTC 时间 02:00（北京时间 10:00）自动执行
+    # 每天 UTC 02:00（北京时间 10:00）定时自动执行
     - cron: '0 2 * * *'
-  workflow_dispatch: # 支持在 GitHub 网页上手动点击按钮立即触发
+  workflow_dispatch: # 允许在 GitHub Actions 页面手动点击 "Run workflow" 立即触发
+
+permissions:
+  contents: write # 显式赋予提交和写入代码的权限
 
 jobs:
   sync:
@@ -30,5 +33,5 @@ jobs:
 
       - name: Trigger Cloudflare Worker Sync
         run: |
-          # 自动通知 Cloudflare Worker 读取最新文件并写入 D1 数据库
-          curl -s "https://vc-sync.swhx7758521.workers.dev/?s=arc-master-dispatch-secret-2026-xYz9AbCd"
+          # 自动触发你的 vc-sync Worker 进行入库
+          curl -s -L "https://vc-sync.swhx7758521.workers.dev/?s=arc-master-dispatch-secret-2026-xYz9AbCd"
