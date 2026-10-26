@@ -1,0 +1,34 @@
+name: Daily Raises Auto Sync
+
+on:
+  schedule:
+    # 每天 UTC 时间 02:00（北京时间 10:00）自动执行
+    - cron: '0 2 * * *'
+  workflow_dispatch: # 支持在 GitHub 网页上手动点击按钮立即触发
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Run sync script
+        run: python sync_raises.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add raises.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto update raises.json [skip ci]" && git push)
+
+      - name: Trigger Cloudflare Worker Sync
+        run: |
+          # 自动通知 Cloudflare Worker 读取最新文件并写入 D1 数据库
+          curl -s "https://vc-sync.swhx7758521.workers.dev/?s=arc-master-dispatch-secret-2026-xYz9AbCd"
